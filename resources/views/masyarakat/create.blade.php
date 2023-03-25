@@ -21,6 +21,10 @@
                 <label for="foto" class="form-label">Foto</label>
                 <input type="file" class="form-control" id="foto" name="foto"></input>
             </div>
+            <div class="mb-3">
+                <input type="radio" name="radiobutton" id="radio">Public
+                <input type="radio" name="radiobutton" id="radio">Private
+            </div>
             <button class="btn btn-success" type="submit">kirim</button>    
         </form>
     </div>

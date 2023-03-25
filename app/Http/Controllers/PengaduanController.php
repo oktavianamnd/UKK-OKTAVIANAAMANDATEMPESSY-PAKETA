@@ -10,23 +10,26 @@ use Illuminate\Support\Facades\File;
 
 class PengaduanController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $pengaduan = pengaduan::get();
         return view('masyarakat.dashboard')->with([
             'pengaduans' => $pengaduan
         ]);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('masyarakat.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validateData = $request->validate([
             'isi_laporan' => 'required',
             'foto' => 'required|mimes:png,jpg',
         ]);
-        $file_name = time(). '_' . $request->foto->getClientOriginalName();
+        $file_name = time() . '_' . $request->foto->getClientOriginalName();
         $request->foto->move(public_path("img/pengaduan"), $file_name);
         Pengaduan::create([
             'nik' => Auth::user()->nik,
@@ -38,11 +41,21 @@ class PengaduanController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function destroy(Request $request, $id){
+    public function show()
+
+    {
+
+        $data = Pengaduan::get()->where('akses', '=', 'public' && 'nik', '=', Auth::user()->nik);
+
+        return view('masyarakat.dataRiwayat', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function destroy(Request $request, $id)
+    {
         $data = Pengaduan::where('id_pengaduan', $id)->first();
         if ($data) {
             if ($data->status == '0') {
-                $path = public_path('img/pengaduan/'. $data->foto);
+                $path = public_path('img/pengaduan/' . $data->foto);
                 if (File::exists($path)) {
                     FIle::delete($path);
                 }

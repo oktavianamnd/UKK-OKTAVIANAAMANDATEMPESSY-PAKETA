@@ -46,6 +46,8 @@ Route::middleware('auth:masyarakat')->group(function () {
     Route::get('masyarakat/create', [PengaduanController::class, 'create'])->name('masyarakat.create');
     Route::post('masyarakat/store', [PengaduanController::class, 'store'])->name('masyarakat.store');
     Route::delete('pengaduan/destroy/{id}', [PengaduanController::class, 'destroy'])->name('pengaduan.destroy');
+    Route::get('riwayat', [PengaduanController::class, 'dataRiwayat'])->name('riwayat');
+    Route::get('dataRiwayat', [PengaduanController::class, 'show'])->name('riwayat');
 });
 
 Route::prefix('webmin')->name('admin.')->group(function () {

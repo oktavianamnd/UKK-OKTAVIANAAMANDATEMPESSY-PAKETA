@@ -9,6 +9,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('riwayat')}}">Semua Laporan</a>
+          </li>
         </ul>
         <button class="btn btn-primary"><a href="{{route('logout')}}" style="color:black; text-decoration:none;">logout</a></button>
       </div>

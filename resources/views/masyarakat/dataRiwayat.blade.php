@@ -3,7 +3,7 @@
     {{-- <center><h1>Hallo {{$me->nama}}</h1></center> --}}
     <br>
     <div class="col-lg-12 grid-margin stretch-card" style="padding: 30px;">
-        <div><a class="btn btn-success" href="{{ route('masyarakat.create') }}">Create</a></div><br>
+        {{-- <div><a class="btn btn-success" href="{{ route('masyarakat.create') }}">Create</a></div><br> --}}
         <table class="table">
             <thead>
                 <tr>
@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pengaduans as $pengaduan)
+                @foreach ($data as $pengaduan)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $pengaduan->tgl_pengaduan }}</td>

@@ -24,7 +24,7 @@
         <div class="row">
             <div class="content-wrapper">
                 <h1>Selamat Datang di Pengaduan Masyarakat Desa Cigombong</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit molestias magnam inventore quia tenetur obcaecati laudantium, maiores rerum corrupti. Sint perspiciatis veniam cumque assumenda fugiat incidunt, molestiae soluta beatae praesentium.</p>
+                <p>Dengan adanya website pengaduan masyarakat ini, semua warga desa cigombong bisa mengadu keluhan yang kalian punya di sekitar desa kalian</p>
                 
                 {{-- <a href="{{route('register')}}">Register</a> --}}
             </div>
