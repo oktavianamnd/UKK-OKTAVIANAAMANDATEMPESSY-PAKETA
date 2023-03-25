@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'masyarakat',
-        'passwords' => 'masyarakat',
+        'passwords' => 'petugas',
     ],
 
     /*
@@ -79,7 +79,12 @@ return [
         'petugas' => [
             'driver' => 'eloquent',
             'model' => App\Models\Petugas::class,
-        ],      
+        ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
 
     /*

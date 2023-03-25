@@ -11,7 +11,8 @@ class Masyarakat extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'masyarakat';
-    protected $fillable = ['nik', 'nama', 'username', 'password', 'telp']; 
+    protected $primaryKey = 'nik';
+    protected $fillable = ['nik', 'nama', 'username', 'password', 'telp'];
 
     public function pengaduan(){
         return $this->hasMany(Pengaduan::class, 'nik', 'nik');

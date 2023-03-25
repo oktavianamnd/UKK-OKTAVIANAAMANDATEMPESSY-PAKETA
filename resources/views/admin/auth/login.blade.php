@@ -112,7 +112,7 @@
               </div>
               <!-- /Logo -->
 
-              <form class="mb-3" action="{{route('authenticate')}}" method="post">
+              <form class="mb-3" action="{{route('admin.authenticate')}}" method="post">
                 @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Username</label>

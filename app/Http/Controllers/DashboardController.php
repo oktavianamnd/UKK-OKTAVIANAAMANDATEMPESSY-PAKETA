@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index(){
         $me = auth()->user();
-        $pengaduans = Pengaduan::get();
+        $pengaduans = Pengaduan::where('nik', $me->nik)->get();
         return view('masyarakat.dashboard', compact('me', 'pengaduans'));
     }
 }

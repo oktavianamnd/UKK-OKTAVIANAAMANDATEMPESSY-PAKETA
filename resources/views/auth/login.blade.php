@@ -112,7 +112,7 @@
               </div>
               <!-- /Logo -->
 
-              <form class="mb-3" action="{{route('admin.authenticate')}}" method="post">
+              <form class="mb-3" action="{{route('authenticate')}}" method="post">
                 @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Username</label>
@@ -124,6 +124,9 @@
                     placeholder="Enter your username"
                     autofocus
                   />
+                  @error('username')
+                    <small class="text-danger">{{$message}}</small>
+                  @enderror
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">

@@ -10,14 +10,15 @@ use App\Models\Petugas;
 
 class DashboardAdminController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $me = auth()->guard('petugas')->user();
         $masyarakat = Masyarakat::count();
         $pengaduan = Pengaduan::count();
         $petugas = Petugas::count();
+        $belumTanggap = Pengaduan::where('status', '0')->count();
+        $prosesTanggap = Pengaduan::where('status', 'proses')->count();
         $tanggap = Pengaduan::where('status', 'selesai')->count();
-        $belumTanggap = Pengaduan::where('status', 'proses')->count();
-        return view('admin.dashboard', compact('me', 'masyarakat', 'petugas', 'pengaduan', 'tanggap', 'belumTanggap'));
-
+        return view('admin.dashboard', compact('me', 'masyarakat', 'petugas', 'pengaduan', 'belumTanggap', 'prosesTanggap', 'tanggap'));
     }
 }

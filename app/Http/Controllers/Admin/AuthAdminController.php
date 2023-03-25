@@ -8,13 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthAdminController extends Controller
 {
-    public function login(){
+    public function login()
+    {
         return view('admin.auth.login');
     }
-    public function authenticate(Request $request){
+    public function authenticate(Request $request)
+    {
         $credentials = $request->validate([
             'username' => 'required',
-            'password' =>'required'
+            'password' => 'required'
         ]);
 
         if (Auth::guard('petugas')->attempt($credentials)) {

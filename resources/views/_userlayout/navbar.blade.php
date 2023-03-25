@@ -10,7 +10,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
         </ul>
-        <a href="{{route('logout')}}">logout</a>
+        <button class="btn btn-primary"><a href="{{route('logout')}}" style="color:black; text-decoration:none;">logout</a></button>
       </div>
     </div>
 </nav>
