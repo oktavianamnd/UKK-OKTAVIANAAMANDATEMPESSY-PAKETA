@@ -18,21 +18,23 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($masyarakats as $masyarakat)
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $masyarakat->nik }}</td>
-                    <td>{{ $masyarakat->nama }}</td>
-                    <td>{{ $masyarakat->username }}</td>
-                    <td>{{ $masyarakat->telp }}</td>
-                    <td>
-                        <a class="btn btn-success" href="#">Edit</a>
-                        <a class="btn btn-danger"
-                            href="{{ route('admin.masyarakat.destroy', $masyarakat->nik) }}">Hapus</a>
-                    </td>
-                @empty
-                    <tr>
-                        <td colspan="4" class="text-center">Tidak ada data</td>
-                    </tr>
+                <tr>
+                    @forelse ($masyarakats as $masyarakat)
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $masyarakat->nik }}</td>
+                        <td>{{ $masyarakat->nama }}</td>
+                        <td>{{ $masyarakat->username }}</td>
+                        <td>{{ $masyarakat->telp }}</td>
+                        <td>
+                            <a class="btn btn-success" href="#">Edit</a>
+                            <a class="btn btn-danger"
+                                href="{{ route('admin.masyarakat.destroy', $masyarakat->nik) }}">Hapus</a>
+                        </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="4" class="text-center">Tidak ada data</td>
+                </tr>
                 @endforelse
             </tbody>
         </table>

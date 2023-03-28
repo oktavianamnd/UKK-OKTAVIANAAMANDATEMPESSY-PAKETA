@@ -27,6 +27,7 @@
                     <th scope="col">Nama Pengadu</th>
                     <th scope="col">Isi Laporan</th>
                     <th scope="col">Tanggal Pengaduan</th>
+                    <th scope="col">Kategori</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -37,6 +38,7 @@
                         <td>{{ $item->masyarakat->nama }}</td>
                         <td>{{ $item->isi_laporan }}</td>
                         <td>{{ $item->tgl_pengaduan }}</td>
+                        <td>{{ $item->kategori }}</td>
                         <td><a class="btn btn-success"
                                 href="{{ route('admin.pengaduan.edit', $item->id_pengaduan) }}">Tanggapi</a></td>
                     </tr>

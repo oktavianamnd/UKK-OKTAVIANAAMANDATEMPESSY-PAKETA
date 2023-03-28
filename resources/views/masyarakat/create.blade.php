@@ -1,33 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('_userlayout.app')
+@section('content')
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Form Laporan</h5>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('masyarakat.store') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="isi_laporan" class="form-label">Isi Laporan</label>
+                        <textarea type="text" class="form-control" id="isi_laporan" name="isi_laporan" cols="30" rows="5"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="foto" name="foto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="kategori" class="form-label">Kategori Pengaduan</label>
+                        <select name="kategori" class="form-select" id="kategori">
+                            <option value="" selected disabled>Pilih Kategori Pengaduan</option>
+                            <option value="publik" {{ old('kategori' == 'publik' ? 'selected' : '') }}>Publik</option>
+                            <option value="privasi" {{ old('kategori' == 'privasi' ? 'selected' : '') }}>Privasi</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-success" type="submit">Kirim</button>
+                </form>
+            </div>
+        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tambah Pengaduan</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
-</head>
-
-<body>
-    <div class="col-lg-12" style="padding: 30px;">
-        <form action="{{ route('masyarakat.store') }}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="mb-3">
-                <label for="isi_laporan" class="form-label">Isi Laporan</label>
-                <input type="text" class="form-control" id="isi_laporan" name="isi_laporan">
-            </div>
-            <div class="mb-3">
-                <label for="foto" class="form-label">Foto</label>
-                <input type="file" class="form-control" id="foto" name="foto"></input>
-            </div>
-            <div class="mb-3">
-                <input type="radio" name="radiobutton" id="radio">Public
-                <input type="radio" name="radiobutton" id="radio">Private
-            </div>
-            <button class="btn btn-success" type="submit">kirim</button>    
-        </form>
     </div>
-</body>
 
-</html>
+    <div class="col-lg-6 ">
+        <div class="card">
+            <div class="card-header">
+                <h5>Apa yang perlu diketahui sebelum melapor?</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    @foreach ($laporan as $item)
+                    <div class="col-1"><span>{{$item['nomor']}}.</span></div>
+                    <div class="col-11"><span>{!!$item['isi']!!}</span></div>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+@endsection

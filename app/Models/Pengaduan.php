@@ -10,7 +10,7 @@ class Pengaduan extends Model
     use HasFactory;
     protected $table = 'pengaduan';
     protected $primaryKey = 'id_pengaduan';
-    protected $fillable = ['tgl_pengaduan', 'nik', 'isi_laporan', 'foto', 'status'];
+    protected $fillable = ['tgl_pengaduan', 'nik', 'isi_laporan', 'kategori', 'foto', 'status'];
 
     public function masyarakat(){
         return $this->belongsTo(Masyarakat::class, 'nik', 'nik');
